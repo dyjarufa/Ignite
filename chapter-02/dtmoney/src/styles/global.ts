@@ -1,15 +1,16 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root{
     --background: #f0f2f5;
     --red: #E52E4D;
+    --green: #33cc95;
     --blue: #5429CC;
 
     --blue-light: #6933FF;
 
     --text-title: #363F5F;
-    --text-body: ##969CB3;
+    --text-body: #969CB3;
 
     --shape: #FFFFFF;
   }
@@ -44,12 +45,12 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
-  button { 
+  button {
     cursor: pointer;
   }
 
   [disabled] { ///tudo que for desabilitado  em nossa aplicação pega esse estilo
     opacity: 0.6;
-    cursor: not-allowed  
+    cursor: not-allowed
   }
 `
