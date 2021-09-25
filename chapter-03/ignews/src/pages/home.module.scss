@@ -2,7 +2,9 @@
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
-  height: calc(100vh - 5rem); // ocupar 100% do viewoprt height(altura da tela) menos os 5 rem definido no header
+  height: calc(
+    100vh - 5rem
+  ); // ocupar 100% do viewoprt height(altura da tela) menos os 5 rem definido no header
 
   display: flex;
   align-items: center;
@@ -17,7 +19,7 @@
     font-weight: bold;
   }
 
-  h1{
+  h1 {
     font-size: 4.5rem;
     line-height: 4.5rem;
     font-weight: 900;
@@ -28,7 +30,7 @@
     }
   }
 
-  p{
+  p {
     font-size: 1.5rem;
     line-height: 2.5rem;
     margin-top: 1.5rem;
@@ -37,5 +39,9 @@
       color: var(--cyan-500);
       font-weight: bold;
     }
+  }
+
+  button {
+    margin-top: 2rem;
   }
 }
