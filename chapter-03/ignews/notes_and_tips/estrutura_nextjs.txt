@@ -6,8 +6,8 @@
   Deve ser iniciado com uma classe ou id
 
 - O arquivo _App será o arquivo principal que fica por volta de todos os componentes
-  ele é recarregado toda vez que o usuário muda de tela
-  Quando for criar uma configuração (ex: fonte externa) seja cria uma única vez,
+  ele é recarregado toda vez que o usuário muda de tela.
+  Quando existe a necessidade de criar uma configuração (ex: fonte externa) ou seja criar uma única vez,
   preciso criar o arquivo _document
 
 - _document funciona de forma semelhante ao _App mas é carregado uma única vez
