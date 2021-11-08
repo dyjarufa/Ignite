@@ -1,5 +1,5 @@
 - Cada arquivo criado dentro da pasta /pages, automaticamente vira uma rota,
-  com exceção do arquivo _app.js e idex.js
+  com exceção do arquivo _app.js e index.js
 
 - CSS Scoped module: o next tem suporte nativo para o css, todo arquivo que 
   termina com .module.css
