@@ -2,6 +2,9 @@ import { FaGithub } from 'react-icons/fa'
 import { FiX } from 'react-icons/fi'
 import styles from './styles.module.scss'
 import { signIn, useSession, signOut} from 'next-auth/client'
+
+
+
 export function SigInButton() {
   const [session] = useSession() // useSession verifica se o usuário esta logado ou não
 
