@@ -8,8 +8,6 @@ import { signIn, useSession, signOut} from 'next-auth/client'
 export function SigInButton() {
   const [session] = useSession() // useSession verifica se o usuário esta logado ou não
 
-  console.log(session)
-
   return session ? (
     <button
       type="button"

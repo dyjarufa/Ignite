@@ -16,7 +16,7 @@ type User = {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if(req.method === 'POST'){
     //criar um customer dentro do painel do stripe
-    // como não tenho acesso ao useSession que é um hook usado no front, preociso buscar os dados do usuário pelos cookies
+    // como não tenho acesso ao useSession que é um hook usado no front, preciso buscar os dados do usuário pelos cookies
     const session = await getSession({ req }); // getSession é um hook do next-auth que permite buscar os dados do usuário que estão no cookies
 
     const user = await fauna.query<User>(
