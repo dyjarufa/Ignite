@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { getPrismicClient } from '../../services/prismic';
 import Prismic from "@prismicio/client";
+import Link from 'next/link';
 
 import { RichText } from 'prismic-dom';
 
@@ -17,6 +18,7 @@ interface PostPros {
   posts: Post[]
 }
 
+// export default - toda página precisa ser default
 export default function ({ posts }: PostPros) {
   return (
     <>
@@ -26,13 +28,16 @@ export default function ({ posts }: PostPros) {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-         {posts.map(post => (
-            <a key={post.slug} href="#">
-            <time>{post.updatedAt}</time>
-            <strong>{post.title}</strong>
-            <p>{post.excerpt}</p>
-          </a>
-         ))}
+          {posts.map(post => (
+
+            <Link href={`/posts/${post.slug}`}>
+              <a key={post.slug} href="#">
+                <time>{post.updatedAt}</time>
+                <strong>{post.title}</strong>
+                <p>{post.excerpt}</p>
+              </a>
+            </Link>
+          ))}
         </div>
       </main>
     </>
@@ -43,7 +48,7 @@ export default function ({ posts }: PostPros) {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
-  const response = await prismic.query([
+  const response = await prismic.query<any>([
     Prismic.predicates.at('document.type', 'post'), // qual tipo de documento estou buscando  "posts" (quer eu criei no prismic)
   ], {
     fetch: ['post.title', 'post.content'], // quais conteúdos quero buscar dos "posts" ( title e content)
@@ -51,9 +56,11 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 
   // console.log(response)
-  // Dica console.log apa paresentar  o conteúdo  de dentro um array oy objeto em cascata
+  // Dica console.log para apresentar  o conteúdo  de dentro um array ou objeto em cascata
   /* console.log(JSON.stringify(response, null, 2)) */
 
+  //console.log(JSON.stringify(response, null, 2))
+  // sempre formatar dados após recebe-los de uma api (ganho de processamento) 
   const posts = response.results.map(post => {
     return {
       slug: post.uid,
